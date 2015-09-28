@@ -79,6 +79,8 @@
 </section><!--/#registration-->
 
 <?php require_once 'footer.php' ?>
+
+<!-- Placed at the end of the document so the pages load faster -->
 <!-- Bootstrap core JavaScript ================================================== -->
 <script src="./js/jquery-1.11.3.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
@@ -86,9 +88,10 @@
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-<script src="vendor/html5shiv/html5shiv.min.js"></script>
-<script src="vendor/respond/respond.min.js"></script>
+<script src="./js/html5shiv.min.js"></script>
+<script src="./js/respond.min.js"></script>
 <![endif]-->
+<!-- Private Function JavaScript ================================================== -->
 
 <script language="JavaScript" type="text/javascript">
     <!--

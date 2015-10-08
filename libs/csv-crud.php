@@ -126,17 +126,5 @@
         rename($TempFile, $file);
         return TRUE;
     }
-
-    function TotalRows($file){
-        $result = 0;
-
-        return $result;
-    }
-
-    function TotalPages($file, $_pagesize){
-        $result = 0;
-
-        return $result;
-    }
 ?>
 

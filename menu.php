@@ -16,13 +16,38 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="about-us.php" >About Us</a></li>
-
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" > Back Office <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="country-list.php">Country List</a></li>
-                        <li><a href="country-entry.php">Country Entry</a></li>
-                        <li><a href="country-edit.php">Country Edit</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Myint Myint Thin </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="mmt.php">Home</a></li>
+                                <li><a href="country-list.php">Country</a></li>
+                                <li><a href="city-list.php">City</a></li>
+                                <li><a href="location-list.php">Location</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Khin Myat Noe</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="kmn.php">Home</a></li>
+                                <li><a href="brand-list.php">Brand</a></li>
+                                <li><a href="color-list.php">Color</a></li>
+                                <li><a href="category-list.php">Category</a></li>
+                                <li><a href="items-list.php">Items</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Doe Doe</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="country-list.php">Country</a></li>
+                                <li><a href="journalist-list.php">Journalist</a></li>
+                                <li><a href="newstype-list.php">News Type</a></li>
+                                <li><a href="news-list.php">News</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="contact-us.php">Contact</a></li>
@@ -31,4 +56,3 @@
         <!-- End Collapse Navigator -->
     </div> <!-- End Container -->
 </nav>
-<?php /*if (stripos($_SERVER['REQUEST_URI'],'index.php') !== false) {echo 'class="active"';} */?>

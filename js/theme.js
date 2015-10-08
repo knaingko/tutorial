@@ -22,3 +22,7 @@ $(document).ready(function () {
     }).parent().addClass('active').parent().parent().addClass('active');
 });
 
+//Dropdown toggle
+$(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+});

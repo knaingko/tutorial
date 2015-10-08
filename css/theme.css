@@ -32,7 +32,7 @@ body {
     content: ">";
     padding: 0 5px;
 }
-ol.breadcrumb > li.active {
+ol.breadcrumb > li >a.active {
     color: #e67e22;
 }
 
@@ -64,3 +64,4 @@ ol.breadcrumb > li.active {
 .panel-footer{
     height:55px;
 }
+

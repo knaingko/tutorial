@@ -11,6 +11,10 @@ if(!empty($_POST)){
     }
     if($_POST['hidDelete'] == 'multi') {
         $data = $_POST['delCheck'];
+//        echo '<pre>';
+//        print_r($data);
+//        echo '</pre>';
+//        die;
         foreach($data as $value)
         {
             DeleteDataByKey('./data/country.csv','CountryID',$value);
@@ -34,9 +38,9 @@ $data = GetAllData('./data/country.csv')
     <!-- Vendor Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-
     <link href="css/font-awesome.min.css" rel="stylesheet">
 
+    <link href="css/dropdown-submenu.css" rel="stylesheet">
     <link href="css/theme.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
 </head><!--/head-->
@@ -100,7 +104,7 @@ $data = GetAllData('./data/country.csv')
     <?php require_once 'footer.php' ?>
     <!-- Placed at the end of the document so the pages load faster -->
     <!-- Bootstrap core JavaScript ================================================== -->
-    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery-2.1.4.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/theme.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -117,11 +121,14 @@ $data = GetAllData('./data/country.csv')
         {
             with(document.CountryList)
             {
-                hidCode.value = '';
-                hidDelete.value = 'multi';
-                action = 'country-list.php';
-                method="post";
-                submit();
+                if(confirm("Are you sure to delete?"))
+                {
+                    hidCode.value = '';
+                    hidDelete.value = 'multi';
+                    action = 'country-list.php';
+                    method="post";
+                    submit();
+                }
             }
         }
 
@@ -139,7 +146,7 @@ $data = GetAllData('./data/country.csv')
 
         function show_edit(id)
         {
-            window.open('country-edit.php?id='+ id,'_self');
+            window.open('country-edit-select.php?id='+ id,'_self');
         }
 
         function show_entry()

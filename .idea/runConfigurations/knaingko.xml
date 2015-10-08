@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="knaingko" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" singleton="true">
+    <CommandLine parameters="php -h" />
+    <TestRunner directory="$PROJECT_DIR$" />
+    <method />
+  </configuration>
+</component>

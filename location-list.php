@@ -24,33 +24,31 @@ $countryData =  GetAllData('./data/country.csv');
 $cityData =  GetAllData('./data/city.csv');
 
 
-echo '<pre>';
-print_r($locationData);
-print_r($countryData);
+//echo '<pre>';
+//print_r($locationData);
+//print_r($countryData);
 
-echo '</pre>';
-
-$lcountry = array();
-$lcity = array();
-$data = array();
+//echo '</pre>';
+//
+//$lcountry = array();
+//$lcity = array();
+//$data = array();
 
 if(!empty($locationData)){
     foreach ($locationData as $key => $locArray) {
         $lcountry = getDataByKeyValue($countryData, 'CountryID', $locArray['CountryID']);
-
-        echo '<pre>';
-        print_r($lcountry);
-        echo '</pre>';
+//        echo '<pre>';
+//        print_r($lcountry);
+//        echo '</pre>';
         $lcity = getDataByKeyValue($cityData, 'CityID', $locArray['CityID']);
         if (isset($lcountry) || isset($lcity)) {
             $data[] = array_merge($locArray,$lcountry,$lcity);
         }
     }
 }
-
-echo '<pre>';
-print_r($data);
-echo '</pre>';
+//echo '<pre>';
+//print_r($data);
+//echo '</pre>';
 ?>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>

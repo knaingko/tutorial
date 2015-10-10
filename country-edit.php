@@ -10,6 +10,7 @@
     {
         $Id = $_GET['id'];
         $data = GetDataByKey('./data/country.csv','CountryID',$Id);
+        print_r($data);
         $Name = $data['CountryName'];
     }
     if(!empty($_POST))
@@ -19,7 +20,7 @@
         $data = array('CountryID'=>$Id, 'CountryName'=>$Name);
 
         if(UpdateDataByKey('./data/country.csv','CountryID',$Id,$data)){
-            redirect('country-list.php');
+            //redirect('country-list.php');
         }
     }
 ?>

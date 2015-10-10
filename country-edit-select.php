@@ -3,23 +3,20 @@
     require_once './libs/csv-crud.php';
     require_once './libs/header.php';
     require_once './libs/breadcrumb.php';
-    require_once './libs/select-option.php';
+    require_once './libs/html-option.php';
+
     $Id = $Name = $Action = ''; $data = array();
     $countryData = GetAllData('./data/country.csv');
 
 
-    if(!empty($_GET))
+    if(!empty($_GET))//edit data show
     {
         $Id = $_GET['id'];
         $data = GetDataByKey('./data/country.csv','CountryID',$Id);
         $Name = $data['CountryName'];
     }
-    if(!empty($_POST))
+    if(!empty($_POST))// save changed data
     {
-        echo '<pre>';
-        print_r($_POST);
-        echo '</pre>';
-
         $Id =  $_POST['country_id'];
         $Name = $_POST['country_name'];
         $data = array('CountryID'=>$Id, 'CountryName'=>$Name);
@@ -73,11 +70,13 @@
             <h3 class="panel-title">Country Edit Form</h3>
         </div>
         <div class="panel-body" align="center">
-            <form class="center" role="form" id="CountryForm" name="CountryForm">
+            <form class="center" role="form" id="CountryForm" name="CountryForm" method="post">
                 <div class="form-group">
                     <div class="input-group col-sm-3 form-inline">
                         <label for="country_id" class="input-group-addon">ID</label>
-                        <select id="country_id" name="country_id" class="form-control"><?php echo(html_option($Id,"CountryID","CountryID",$countryData));?></select>
+                        <select id="country_id" name="country_id" class="form-control">
+                            <?php echo(html_option("CountryID","CountryID",$countryData,$Id));?>
+                        </select>
                     </div>
                 </div>
 
@@ -90,8 +89,8 @@
             </form>
         </div>
         <div class="panel-footer" align="center">
-            <button type="button" class="btn btn-primary action-btn" onclick="SaveData();">Save</button>
-            <button type="button" class="btn btn-primary action-btn" onclick="window.open('country-list.php','_self');">Cancel</button>
+            <button id="btnSave" type="button" class="btn btn-primary action-btn">Save</button>
+            <button id="btnCancel" type="button" class="btn btn-primary action-btn">Cancel</button>
         </div>
     </div>
 </section><!--/#registration-->
@@ -129,15 +128,13 @@
         }
     });
 
-    function SaveData()
-    {
-        with(document.CountryForm)
-        {
-            action = 'country-edit-select.php';
-            method = 'post';
-            submit();
-        }
-    }
+    $('#btnSave').click( function() {
+        $('form').submit();
+    });
+
+    $('#btnCancel').click( function() {
+        window.open('country-list.php','_self');
+    });
 //-->
 </script>
 <!-- Placed at the end of the document so the pages load faster -->

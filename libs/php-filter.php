@@ -34,8 +34,59 @@ foreach($filtered_array as $key=>$value)
 }
 
 
+function isOctal($octal){
+    if(filter_var($octal, FILTER_VALIDATE_INT, array("flags"=>FILTER_FLAG_ALLOW_OCTAL))===TRUE)
+        return true;
+    else
+        return false;
+}
+function isHexidecimal($Hex){
+    if(filter_var($Hex, FILTER_VALIDATE_INT, array("flags"=>FILTER_FLAG_ALLOW_HEX))===FALSE)
+        return false;
+    else
+        return true;
+}
+$octal = 0666;
+var_dump(isOctal($octal));
+$hex = "0xff";
+var_dump(isHexidecimal($hex));
 
+function isBoolean($boolean){
+    return filter_var($boolean, FILTER_VALIDATE_BOOLEAN);
+}
+var_dump(isBoolean(1));
+
+function isBooleanInArray($array){
+    return(filter_var($array, FILTER_VALIDATE_BOOLEAN, FILTER_REQUIRE_ARRAY));
+}
+$array = array(0,1,2,3,4, array(0,1,2,3,4));
+var_dump(isBooleanInArray($array));
+
+function isFloat($var){
+    return(filter_var($var, FILTER_VALIDATE_FLOAT))?true:false;
+}
+var_dump(isFloat('123.45678'));
+
+function isFloatInArray($array){
+    return (filter_var($array, FILTER_VALIDATE_FLOAT, FILTER_REQUIRE_ARRAY));
+}
+$array = array(1.2,"1.7","", "-12345.678", "1,234.2222", "abcd4.2efgh", array());
+echo '<br/>';
+var_dump(isFloatInArray($array));
+
+function isEmailByRegexp($email){
+    $pattern = '/^\S+@[\w\d.-]{2,}\.[\w]{2,6}$/iU';
+    return (filter_var($email, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>$pattern))))?true:false;
+}
+$mail = 'knaingko@gmail.com';
+var_dump(isEmailByRegexp($mail));
+
+function isURL($url){
+    return (filter_var($url, FILTER_VALIDATE_URL))?true:false;
+}
+var_dump(isURL('http://www.my.com/aaaa/asdfasd/asdfasdf/afsd'));
 ?>
+
 
 </body>
 </html>

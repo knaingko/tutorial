@@ -118,7 +118,7 @@
         </div>
         <div class="panel-footer" align="center">
             <button type="button" class="btn btn-primary action-btn" onclick="SaveData();">Save</button>&nbsp;
-            <button type="button" class="btn btn-primary action-btn" onclick="window.open('country-list.php','_self');">Cancel</button>
+            <button type="button" class="btn btn-primary action-btn" onclick="window.open('location-list.php','_self');">Cancel</button>
         </div>
     </div>
 </section><!--/#registration-->

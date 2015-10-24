@@ -51,10 +51,14 @@ var_dump(isOctal($octal));
 $hex = "0xff";
 var_dump(isHexidecimal($hex));
 
+echo '<br />';
+
 function isBoolean($boolean){
     return filter_var($boolean, FILTER_VALIDATE_BOOLEAN);
 }
 var_dump(isBoolean(1));
+
+echo '<br />';
 
 function isBooleanInArray($array){
     return(filter_var($array, FILTER_VALIDATE_BOOLEAN, FILTER_REQUIRE_ARRAY));
@@ -62,10 +66,14 @@ function isBooleanInArray($array){
 $array = array(0,1,2,3,4, array(0,1,2,3,4));
 var_dump(isBooleanInArray($array));
 
+echo '<br />';
+
 function isFloat($var){
     return(filter_var($var, FILTER_VALIDATE_FLOAT))?true:false;
 }
 var_dump(isFloat('123.45678'));
+
+echo '<br />';
 
 function isFloatInArray($array){
     return (filter_var($array, FILTER_VALIDATE_FLOAT, FILTER_REQUIRE_ARRAY));
@@ -74,6 +82,8 @@ $array = array(1.2,"1.7","", "-12345.678", "1,234.2222", "abcd4.2efgh", array())
 echo '<br/>';
 var_dump(isFloatInArray($array));
 
+echo '<br />';
+
 function isEmailByRegexp($email){
     $pattern = '/^\S+@[\w\d.-]{2,}\.[\w]{2,6}$/iU';
     return (filter_var($email, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>$pattern))))?true:false;
@@ -81,10 +91,20 @@ function isEmailByRegexp($email){
 $mail = 'knaingko@gmail.com';
 var_dump(isEmailByRegexp($mail));
 
+echo '<br />';
+
 function isURL($url){
     return (filter_var($url, FILTER_VALIDATE_URL))?true:false;
 }
 var_dump(isURL('http://www.my.com/aaaa/asdfasd/asdfasdf/afsd'));
+
+echo '<br />';
+
+function isEmail($email){
+    return filter_var($email, FILTER_VALIDATE_EMAIL)?true:false;
+}
+var_dump(isEmail('kevin@foo.bar.net'));
+
 ?>
 
 
